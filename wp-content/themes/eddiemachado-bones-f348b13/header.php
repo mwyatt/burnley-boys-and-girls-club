@@ -50,8 +50,10 @@
 
 				<div id="inner-header" class="wrap clearfix">
 
+					<a class="support" href="<?php echo home_url(); ?>/support/">Support us</a></p>
+
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<a class="logo" href="<?php echo home_url(); ?>" rel="nofollow" title="<?php bloginfo('name'); ?> Logo"><?php bloginfo('name'); ?></a></p>
 
 					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>
