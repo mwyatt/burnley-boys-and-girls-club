@@ -54,7 +54,7 @@
 
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
 					<p>
-						<a class="logo" href="<?php echo home_url(); ?>" rel="nofollow" title="<?php bloginfo('name'); ?> Logo"><?php bloginfo('name'); ?></a>
+						<a class="logo" href="<?php echo home_url(); ?>" rel="nofollow" title="Open Homepage"><?php bloginfo('name'); ?></a>
 						Registered Charity No. 525035
 					</p>
 
@@ -69,18 +69,3 @@
 				</div> <!-- end #inner-header -->
 
 			</header> <!-- end header -->
-<?php
-
-$query_images_args = array(
-    'post_type' => 'attachment', 'post_mime_type' =>'image', 'post_status' => 'inherit', 'posts_per_page' => -1,
-);
-
-$query_images = new WP_Query( $query_images_args );
-$gallery = array();
-foreach ( $query_images->posts as $key => $image) {
-	if (get_post_meta($image->ID, '_wp_attachment_image_alt', true) == 'gallery') {
-	    $gallery[] = wp_get_attachment_url( $image->ID );
-	}
-}
-
-?>

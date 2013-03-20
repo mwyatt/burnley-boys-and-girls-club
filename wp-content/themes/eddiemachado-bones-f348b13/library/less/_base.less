@@ -45,7 +45,8 @@ body {
 	font-size: 100%;
 	line-height: 1.5;
 	color: #565656;
-	background: url(../images/header-bg.png) 50% 0 no-repeat;
+	// background: url(../images/header-bg.png) 50% 0 no-repeat;
+	background: url(../images/bg.jpg) 50% 0 no-repeat;
 }
 
 /********************
@@ -317,10 +318,19 @@ and more scalable.
 08. POSTS & CONTENT STYLES
 *********************/
 
-#content {
-	margin: 0;
+// fancy heading on homepage
 
-	#inner-content {}
+.home.blog {
+
+	.articles article {
+		padding: 30px 0 0;
+		border-top: 1px solid rgb(204, 204, 204);
+
+		&:first-child {
+			padding: 0;
+			border: none;
+		}
+	}
 
 	h2 {
 		color: #a4959c;
@@ -333,6 +343,13 @@ and more scalable.
 		line-height: 1em;
 		padding: 0 0 8px 0;
 	}
+
+}
+
+#content {
+	margin: 0;
+
+	#inner-content {}
 }
 
 .col-540 {
@@ -340,7 +357,10 @@ and more scalable.
 	width: 540px;
 }
 
+
+
 article {
+
 
 	h1.h2 {
 		margin: 0 0 .5em;
@@ -375,11 +395,11 @@ article {
 		} /* end .hentry */
 
 		.single-title,
-		.page-title {}
+		.page-title {margin: 0;}
 
-		.single-title {}
+		.single-title {margin: 0;}
 
-		.page-title {}
+		.page-title {margin: 0;}
 
 		.archive-title { }
 
@@ -401,7 +421,18 @@ article {
 		}
 
 		/* entry content */
+
+		.entry-title {
+			
+		}
+
 		.entry-content {
+			font-family: 'Arial', 'sans-serif';
+
+			h2 {
+
+			}
+	
 
 			p {}
 
@@ -901,7 +932,33 @@ article {
 12. SIDEBARS & ASIDES
 *********************/
 
-.sidebar {}
+.sidebar {
+	width: 340px;
+	float: right;
+	margin: 0;
+
+	.gallery {
+
+		a {
+			.transition (all .2s ease-in-out);
+			overflow: hidden;
+			display: block;
+			width: 150px;
+			height: 120px;
+			float: right;
+			margin: 0 0 20px 20px;
+			vertical-align: top;
+
+			img {
+				.border-radius (3px);
+			}
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+	}
+}
 
 	.widgettitle {}
 
@@ -932,12 +989,76 @@ article {
 
 .footer {
 	clear: both;
+	border-top: 1px solid rgb(204, 204, 204);
+	padding: 40px 0 0 0;
+	margin: 60px 0 0 0;
+
 	#inner-footer {
 	}
+
+	h4 {
+		display: none;
+	}
+
+	nav {
+		float: left;
+		width: 145px;
+	}
+
+	.contact {
+		float: left;
+		width: 290px;
+		margin: 0 20px 20px 0;
+
+		p {
+			margin: 0;
+		}
+
+		.address {
+			margin: 0 0 20px;
+		}
+
+		.telephone {
+			margin: 0 0 20px;
+
+			div {
+				display: inline;
+			}
+		}
+	}
+
+
+	.partner {
+		float: right;
+		width: 360px;
+
+		a {
+			float: right;
+			margin: 0 0 30px 30px;
+		}
+	}
+
 	nav {
 		ul.nav {
+			margin: 0;
+
 			li {
-				a {}
+				display: block;
+				margin: 0 0 10px;
+
+				a {
+					padding: 0;
+					font-size: 1.2em;
+					text-decoration: underline;
+					display: block;
+					width: 225px;
+					text-transform: none;
+
+					&:hover {
+						text-decoration: none;
+						color: @link-hover;
+					}
+				}
 
 				&:first-child {}
 

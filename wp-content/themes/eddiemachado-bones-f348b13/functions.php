@@ -78,8 +78,8 @@ you like. Enjoy!
 function bones_register_sidebars() {
     register_sidebar(array(
     	'id' => 'sidebar1',
-    	'name' => __('Sidebar 1', 'bonestheme'),
-    	'description' => __('The first (primary) sidebar.', 'bonestheme'),
+    	'name' => __('Storage', 'bonestheme'),
+    	'description' => __('Various details which may need to be changed or updated.', 'bonestheme'),
     	'before_widget' => '<div id="%1$s" class="widget %2$s">',
     	'after_widget' => '</div>',
     	'before_title' => '<h4 class="widgettitle">',
@@ -163,5 +163,27 @@ function bones_wpsearch($form) {
     return $form;
 } // don't remove this bracket!
 
+
+/**
+ * obtain all images with the keyword 'gallery' in the alt text
+ * @return [type] [description]
+ */
+function getGallery() {
+    $query_images_args = array(
+        'post_type' => 'attachment', 'post_mime_type' =>'image', 'post_status' => 'inherit', 'posts_per_page' => -1,
+    );
+    $query_images = new WP_Query( $query_images_args );
+    $gallery = array();
+    foreach ( $query_images->posts as $key => $image) {
+        if (get_post_meta($image->ID, '_wp_attachment_image_alt', true) == 'gallery') {
+            $gallery[$key]['guid'] = wp_get_attachment_url( $image->ID );
+            $gallery[$key]['img'] = wp_get_attachment_image( $image->ID, '150x120', false );
+        }
+    }
+    shuffle($gallery);
+    if (! empty($gallery))
+        return $gallery;
+    return false;
+}
 
 ?>

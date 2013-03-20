@@ -7,7 +7,7 @@
 				    <div id="main" class="col-540 clearfix" role="main">
 
 						<h2>latest news &amp; events</h2>
-
+						<div class="articles">
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
@@ -37,7 +37,7 @@
 					    </article> <!-- end article -->
 					
 					    <?php endwhile; ?>	
-					
+						</div>
 					        <?php if (function_exists('bones_page_navi')) { ?>
 					            <?php bones_page_navi(); ?>
 					        <?php } else { ?>

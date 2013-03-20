@@ -1,25 +1,32 @@
-				<div id="sidebar1" class="sidebar fourcol last clearfix" role="complementary">
+				<div id="sidebar1" class="sidebar clearfix" role="complementary">
 
-<?php if ($gallery) : ?>
+<?php if ($gallery = getGallery()) : ?>
+	
+					<div class="gallery">
+
 	<?php foreach ($gallery as $image) : ?>
 
-					<a href="<?php echo $image; ?>"><img src="<?php echo $image; ?>" alt=""></a>
+						<a href="<?php echo $image['guid']; ?>" title="View larger image"><?php echo $image['img']; ?></a>
 
 	<?php endforeach; ?>
-<?php endif; ?>
 
-					<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+					</div>
 
-						<?php dynamic_sidebar( 'sidebar1' ); ?>
+<?php endif; ?>	
 
-					<?php else : ?>
+
+					<?php // if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+
+						<?php // dynamic_sidebar( 'sidebar1' ); ?>
+
+					<?php // else : ?>
 
 						<!-- This content shows up if there are no widgets defined in the backend. -->
 						
-						<div class="alert help">
+						<!-- <div class="alert help">
 							<p><?php _e("Please activate some Widgets.", "bonestheme");  ?></p>
-						</div>
+						</div> -->
 
-					<?php endif; ?>
+					<?php // endif; ?>
 
 				</div>
